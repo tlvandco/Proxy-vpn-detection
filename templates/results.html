@@ -1,0 +1,74 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<section class="search-domain-area section-bg pt-140 pb-140" data-background="{% static 'img/gallery/section_bg02.jpg' %}">
+            <div class="container">
+                <div class="row align-items-end mb-80">
+                    <div class="col-xl-4">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle section-tittle2">
+                            <span>IP</span>
+                            <h2>enter here</h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-8">
+                        <!-- Search Box -->
+                        <form class="form-inline" action="" method="post">
+                            {% csrf_token %}
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input type="text" id="ip" name="ip" placeholder="  enter your ip" style="height: 50px;border-radius:15px;"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2" href="/results/">submit</button>
+                    </form>	
+                        <!-- Search Box End-->
+                    </div>
+                </div>
+            </div>
+        </section>
+<!--results-->
+<section class="search-domain-area section-bg pt-140 pb-140" data-background="{% static 'img/gallery/section_bg02.jpg' %}">
+            <div class="container">
+                <!-- Domain List -->
+                <div class="section-tittle section-tittle2">
+                            <h2>You can get here about</h2>
+                        </div>
+                <div class="row">
+                    <div class="domain-list">
+                        <div class="single-domain">
+                            <span>Your IP</span>
+                            <p>{{host}}</p>
+                        </div>
+                        <div class="single-domain">
+                            <span>proxy</span>
+                            <p>{{proxy}}</p>
+                        </div>
+                        <div class="single-domain m">
+                            <span>VPN</span>
+                            <p>{{vpn}}</p>
+                        </div>
+                        <div class="single-domain">
+                            <span>TOR</span>
+                            <p>{{tor}}</p>
+                        </div>
+                        
+                        <div class="single-domain">
+                            <span>Bot status</span>
+                            <p>{{bot_status}}<br></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="container">
+                    <div class="row">
+                        <div class="domain-list">
+                            <div class="single-domain">
+                                <span>location</span>
+                                <p>{{region}} {{city}}</p>
+                                <p><a href="https://www.google.com/maps/place/{{latitude}},{{longitude}}">click here</a> for zone</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+{% endblock %}
